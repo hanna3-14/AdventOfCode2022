@@ -21,3 +21,8 @@ for i in listOfCalories:
 		highestCalories = i
 
 print(highestCalories)
+
+listOfCalories.sort()
+listOfCalories.sort(reverse=True)
+topThree = listOfCalories[0] + listOfCalories[1] + listOfCalories[2]
+print(topThree)
