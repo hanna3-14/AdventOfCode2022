@@ -12,3 +12,16 @@ for line in lines:
 		fullyConainedPairs += 1
 
 print(fullyConainedPairs)
+
+overlappedPairs = 0
+
+for line in lines:
+	numbers = re.findall(r'\d+', line)
+
+	list1 = list(range(int(numbers[0]), int(numbers[1]) + 1))
+	list2 = list(range(int(numbers[2]), int(numbers[3]) + 1))
+
+	if len(set(list1).intersection(list2)) != 0:
+		overlappedPairs += 1
+
+print(overlappedPairs)
