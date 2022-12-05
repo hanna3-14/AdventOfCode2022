@@ -47,13 +47,31 @@ stack8 = list(filter(None, stack8))
 stack9 = list(filter(None, stack9))
 stack = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9]
 
+# task 1
+#for instruction in instructions:
+#	numbers = re.findall(r'\d+', instruction)
+
+#	for i in range(int(numbers[0])):
+#		if stack[int(numbers[1]) - 1]:
+#			stack[int(numbers[2]) - 1] = [stack[int(numbers[1]) - 1][0]] + stack[int(numbers[2]) - 1]
+#		if stack[int(numbers[1]) - 1]:
+#			stack[int(numbers[1]) - 1].pop(0)
+
+#print(stack[0][0],stack[1][0],stack[2][0],stack[3][0],stack[4][0],stack[5][0],stack[6][0],stack[7][0],stack[8][0])
+
+# task 2
 for instruction in instructions:
 	numbers = re.findall(r'\d+', instruction)
 
-	for i in range(int(numbers[0])):
+	movingList = []
+	movingCount = int(numbers[0])
+
+	while movingCount > 0:
 		if stack[int(numbers[1]) - 1]:
-			stack[int(numbers[2]) - 1] = [stack[int(numbers[1]) - 1][0]] + stack[int(numbers[2]) - 1]
-		if stack[int(numbers[1]) - 1]:
+			movingList.append(stack[int(numbers[1]) - 1][0])
 			stack[int(numbers[1]) - 1].pop(0)
+		movingCount -= 1
+
+	stack[int(numbers[2]) - 1] = movingList + stack[int(numbers[2]) - 1]
 
 print(stack[0][0],stack[1][0],stack[2][0],stack[3][0],stack[4][0],stack[5][0],stack[6][0],stack[7][0],stack[8][0])
