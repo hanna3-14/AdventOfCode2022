@@ -10,6 +10,7 @@ parentNode = root
 
 listOfDirectories = []
 
+# task 1
 for line in lines:
 	re.sub("\n", "", line)
 	chunks = line.split(' ')
@@ -38,3 +39,21 @@ for number in listOfDirectories:
 		totalsum += number
 
 print(totalsum)
+
+# task 2
+usedSpace = max(listOfDirectories)
+print("used space: ", usedSpace)
+
+availableSpace = 70000000 - usedSpace
+print("available space: ", availableSpace)
+
+neededSpace = 30000000 - availableSpace
+print("needed space:", neededSpace)
+delete = 70000000
+
+for number in listOfDirectories:
+	if number >= neededSpace and number < delete:
+		delete = number
+
+print("file to delete:", delete)
+
